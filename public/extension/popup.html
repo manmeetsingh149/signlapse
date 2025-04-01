@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Player</title>
+  <style>
+    body {
+      width: 640px;
+      height: 360px;
+      margin: 0;
+      padding: 0;
+      background: #1F2937;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #videoContainer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #1F2937;
+    }
+
+    #videoPlayer {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Hide the time display and other controls */
+    #videoPlayer::-webkit-media-controls-timeline,
+    #videoPlayer::-webkit-media-controls-current-time-display,
+    #videoPlayer::-webkit-media-controls-time-remaining-display,
+    #videoPlayer::-webkit-media-controls-mute-button,
+    #videoPlayer::-webkit-media-controls-volume-slider,
+    #videoPlayer::-webkit-media-controls-fullscreen-button {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="videoContainer">
+    <video id="videoPlayer" autoplay controls controlsList="nodownload nofullscreen noremoteplayback">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <script>
+    // Ensure video plays automatically
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('videoPlayer');
+      video.play().catch(function(error) {
+        console.log("Video autoplay failed:", error);
+      });
+    });
+  </script>
+</body>
+</html> 
