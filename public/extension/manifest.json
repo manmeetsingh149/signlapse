@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Signapse Translator",
+  "version": "1.0",
+  "description": "A video player extension",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.signapse.ai/*",
+    "*://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.signapse.ai/*",
+        "*://localhost/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/hand-icon.svg",
+      "48": "images/hand-icon.svg",
+      "128": "images/hand-icon.svg"
+    }
+  },
+  "icons": {
+    "16": "images/hand-icon.svg",
+    "48": "images/hand-icon.svg",
+    "128": "images/hand-icon.svg"
+  },
+  "web_accessible_resources": [{
+    "resources": ["3d-model/*"],
+    "matches": ["<all_urls>"]
+  }]
+} 
