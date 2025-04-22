@@ -2,9 +2,19 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function AudioTranslation() {
+  // Create refs for scroll animations
+  const titleRef = useRef(null);
+  const howItWorksRef = useRef(null);
+  const uploadSectionRef = useRef(null);
+  
+  // Check if sections are in view
+  const isTitleVisible = useInView(titleRef, { once: true, margin: "-100px" });
+  const isHowItWorksVisible = useInView(howItWorksRef, { once: true, margin: "-100px" });
+  const isUploadSectionVisible = useInView(uploadSectionRef, { once: true, margin: "-100px" });
   return (
     <div className="min-h-screen bg-white">
       {/* Header with Logo */}
@@ -34,8 +44,28 @@ export default function AudioTranslation() {
       <main className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* How it Works Section */}
-          <section className="mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">Audio Translation</h1>
+          <motion.section 
+            ref={howItWorksRef}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ 
+              opacity: isHowItWorksVisible ? 1 : 0, 
+              y: isHowItWorksVisible ? 0 : 50 
+            }}
+            transition={{ duration: 0.7 }}
+            className="mb-16"
+          >
+            <motion.h1 
+              ref={titleRef}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ 
+                opacity: isTitleVisible ? 1 : 0, 
+                y: isTitleVisible ? 0 : 30 
+              }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold text-gray-900 mb-8"
+            >
+              Audio Translation
+            </motion.h1>
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">How it Works</h2>
               <div className="space-y-6">
@@ -71,7 +101,16 @@ export default function AudioTranslation() {
           </section>
 
           {/* Audio Upload Section */}
-          <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+          <motion.section 
+            ref={uploadSectionRef}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ 
+              opacity: isUploadSectionVisible ? 1 : 0, 
+              y: isUploadSectionVisible ? 0 : 50 
+            }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8"
+          >
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Upload Your Audio</h2>
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-12">
               <div className="space-y-4 text-center">
@@ -95,4 +134,4 @@ export default function AudioTranslation() {
       </main>
     </div>
   );
-} 
+}

@@ -32,4 +32,12 @@ module.exports = {
     },
   },
   plugins: [],
-} 
+  // Production optimizations
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  // Reduce file size in production
+  corePlugins: {
+    aspectRatio: false,
+  },
+}

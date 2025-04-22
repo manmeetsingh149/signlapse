@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 type FileType = 'video' | 'document' | 'audio' | null;
 
@@ -15,6 +15,16 @@ export default function Upload() {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  
+  // Create refs for scroll animations
+  const titleRef = useRef(null);
+  const uploadSectionRef = useRef(null);
+  const fileTypeSectionRef = useRef(null);
+  
+  // Check if sections are in view
+  const isTitleVisible = useInView(titleRef, { once: true, margin: "-100px" });
+  const isUploadSectionVisible = useInView(uploadSectionRef, { once: true, margin: "-100px" });
+  const isFileTypeSectionVisible = useInView(fileTypeSectionRef, { once: true, margin: "-100px" });
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const uploadedFile = acceptedFiles[0];
@@ -309,4 +319,4 @@ export default function Upload() {
       </main>
     </div>
   );
-} 
+}

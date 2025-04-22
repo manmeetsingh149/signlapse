@@ -60,7 +60,7 @@ export default function Home() {
     {
       title: "Real-time ISL Translation",
       description: "Instant translation of announcements into ISL",
-      image: "/images/slide2.jpg"
+      image: "/images/optimized/slide2.jpg"
     }
   ]
 
@@ -81,7 +81,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
+    }, 8000)
     return () => clearInterval(timer)
   }, [])
 
@@ -268,11 +268,15 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ 
                   opacity: index === currentSlide ? 1 : 0,
-                  scale: index === currentSlide ? 1 : 1.1
+                  scale: index === currentSlide ? 1 : 1.1,
+                  filter: index === currentSlide ? 'blur(0px)' : 'blur(8px)'
                 }}
                 transition={{ 
-                  duration: 1.2,
-                  ease: [0.4, 0, 0.2, 1]
+                  duration: 2.5,
+                  ease: [0.4, 0, 0.2, 1],
+                  opacity: { duration: 1.8 },
+                  scale: { duration: 3.0 },
+                  filter: { duration: 2.0 }
                 }}
                 style={{
                   position: 'absolute',
@@ -306,7 +310,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="mb-12"
+              className="mb-12 text-left"
             >
               <div className="flex flex-col gap-8">
                 <h1 className="text-7xl leading-tight font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent drop-shadow-sm max-w-4xl">
@@ -321,7 +325,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="flex gap-4 mt-12"
+            className="flex gap-4 mt-12 justify-start"
           >
             <Link href="/video">
               <motion.button
@@ -402,10 +406,17 @@ export default function Home() {
               </button>
               <Link 
                 href="/signapse-extension.zip"
-                className="bg-[#8B5CF6] text-white px-4 py-2 rounded-lg hover:bg-[#7C3AED] transition-colors"
+                className="border border-[#8B5CF6] text-[#8B5CF6] px-4 py-2 rounded-lg hover:bg-[#8B5CF6] hover:text-white transition-colors"
                 download="signapse-extension.zip"
               >
                 Get Extension
+              </Link>
+              <Link 
+                href="/auth/login"
+                className="bg-[#8B5CF6] text-white px-5 py-2.5 rounded-lg hover:bg-[#7C3AED] transition-colors font-medium shadow-md"
+                prefetch={true}
+              >
+                Sign In
               </Link>
             </div>
           </div>
@@ -1458,4 +1469,4 @@ export default function Home() {
       </footer>
     </main>
   )
-} 
+}

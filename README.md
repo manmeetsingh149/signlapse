@@ -1,87 +1,68 @@
-# Signapse Website Clone
+# SignLapse - AI Sign Language Translation Platform
 
-This is a clone of the Signapse.ai website built with Next.js, React, and Tailwind CSS.
+SignLapse is a comprehensive sign language translation platform built with Next.js, featuring AI-powered translation services for Indian Sign Language (ISL).
 
 ## Features
 
-- Modern, responsive design
-- Mobile-friendly navigation
-- Hero section with call-to-action buttons
-- Features section highlighting key capabilities
-- Footer with comprehensive links
-- Built with Next.js 14 and React 18
-- Styled with Tailwind CSS
+- **User Authentication**: Secure login and registration system
+- **Dashboard**: Progress tracking and learning management
+- **Subject-based Learning**: Structured curriculum for learning sign language
+- **File Upload**: Support for video, audio, and document uploads
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
 
-## Prerequisites
+## Technologies Used
 
-- Node.js 18.17 or later
-- npm or yarn package manager
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
 ## Getting Started
 
-1. Clone the repository:
+### Prerequisites
+
+- Node.js 18 or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
 ```bash
-git clone <repository-url>
-cd signapse-clone
+git clone https://github.com/your-username/signlapse.git
+cd signlapse
 ```
 
-2. Install dependencies:
+2. Install dependencies
 ```bash
 npm install
 # or
 yarn install
 ```
 
-3. Run the development server:
+3. Run the development server
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Project Structure
+## Related Projects
 
-```
-signapse-clone/
-├── app/
-│   ├── components/
-│   │   ├── Navbar.tsx
-│   │   └── Footer.tsx
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── public/
-├── package.json
-├── next.config.js
-├── tailwind.config.js
-└── postcss.config.js
-```
+- **SignCoach**: Real-time sign language detection application 
+- **3D Avatar Bot**: Web application for sign language video generation
+- **YouTube Extension**: Chrome extension for YouTube video sign language translation
 
-## Technologies Used
+## Deployment
 
-- Next.js 14
-- React 18
-- Tailwind CSS
-- TypeScript
-- Framer Motion (for animations)
-
-## Development
-
-- The project uses TypeScript for type safety
-- Tailwind CSS for styling
-- Next.js App Router for routing
-- Component-based architecture
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+The application is optimized for deployment on Vercel, but can be deployed on any hosting platform that supports Next.js.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Special thanks to all contributors who have participated in this project
+- Inspired by the need to make digital content more accessible to the Deaf community 
