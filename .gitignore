@@ -1,0 +1,58 @@
+# Node modules
+node_modules/
+
+# Python virtual environment
+**/signcoach/Lib/
+
+# Large files
+sign-coach/signcoach/Lib/site-packages/clang/native/libclang.dll
+web-app/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node
+web-app/node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node
+sign-coach/signcoach/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
+web-app/public/images/sign3.jpg
+web-app/public/images/slide1.jpg
+web-app/images/sign2.jpg
+web-app/images/sign3.jpg
+web-app/images/slide1.jpg
+3dbot/videos.zip
+word_*.mp3
+3dbot/videos/*.mp4
+youtube-extension/sign_words/*.mp4
+web-app/public/extension/*.mp4
+web-app/public/images/*.mp4
+web-app/public/*.zip
+web-app/node_modules/@img/sharp-win32-x64/lib/libvips-42.dll
+web-app/node_modules/@img/sharp-libvips-darwin-arm64/lib/libvips-cpp.42.dylib
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Log files
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
